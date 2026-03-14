@@ -25,7 +25,21 @@ code-review/
 └── scripts/
     └── fetch-pr-comments.mjs  # 辅助脚本 — 拉取 GitHub PR Review 评论
 ```
+## 整体流程
+```HTML
 
+历史 PR 评论 ──采集──→ review-log.md
+       ↓
+   提炼规律 ──抽象──→ RULES.md
+       ↓
+   编排流程 ──执行──→ SKILL.md（AI 自动 Review）
+       ↓
+   新 PR 产生评论 ──再采集──→ review-log.md（更新）
+       ↓
+   发现新模式 ──再抽象──→ RULES.md（迭代）
+       ↓
+       ... 循环 ...
+```
 ## 安装
 
 将本目录复制到你项目的 `.cursor/skills/code-review/` 下：
@@ -170,6 +184,16 @@ GITHUB_TOKEN=ghp_xxx node scripts/fetch-pr-comments.mjs \
 - **定期运行**：每月或每个迭代结束后运行一次，保持日志时效性
 - **敏感信息**：如日志含敏感内容，加入 `.gitignore`
 - **Rate Limit**：PR 数量多（> 200）时，增大 `--delay` 到 500ms
+
+
+## 效果图
+最后执行 AI Review 之后，会产生这种效果
+
+![](https://files.mdnice.com/user/56693/678acf63-7a1b-4dc0-9c52-3b87ea25d35d.png)
+
+![](https://files.mdnice.com/user/56693/b2e3b3ce-f9f1-484b-9016-6b209b61fbca.png)
+
+![](https://files.mdnice.com/user/56693/5f66f2d5-d3ac-4387-bbaf-bb81e94d3890.png)
 
 ## FAQ
 
